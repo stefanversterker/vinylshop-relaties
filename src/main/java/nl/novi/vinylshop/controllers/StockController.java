@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/stock")
+@RequestMapping("/albums/{albumId}/stock")
 public class StockController {
 
     private final StockService stockService;
@@ -21,7 +21,6 @@ public class StockController {
     public StockController(StockService stockService, UrlHelper urlHelper) {
         this.stockService = stockService;
         this.urlHelper = urlHelper;
-
     }
 
     @GetMapping
