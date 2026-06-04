@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import nl.novi.vinylshop.dtos.album.AlbumRequestDTO;
 import nl.novi.vinylshop.dtos.album.AlbumResponseDTO;
 import nl.novi.vinylshop.helpers.UrlHelper;
+import nl.novi.vinylshop.services.AlbumService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,7 +31,7 @@ public class AlbumController {
         return new ResponseEntity<>(albums, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
+    /*@GetMapping("/{id}")
     public ResponseEntity<AlbumResponseDTO> getAlbumById(@PathVariable Long id) {
         AlbumResponseDTO album = albumService.findAlbumById(id);
         return new ResponseEntity<>(album, HttpStatus.OK);
@@ -52,7 +53,7 @@ public class AlbumController {
     public ResponseEntity<Void> deleteAlbum(@PathVariable Long id) {
         albumService.deleteAlbum(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
+    }*/
 
 
 }

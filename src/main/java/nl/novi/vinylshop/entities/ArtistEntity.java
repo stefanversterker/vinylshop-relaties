@@ -6,13 +6,17 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "artists")
 public class ArtistEntity extends BaseEntity {
+
     private String name;
     private String biography;
+
+    /*protected ArtistEntity() {
+    }
 
     public ArtistEntity(String name, String biography) {
         this.name = name;
         this.biography = biography;
-    }
+    }*/
 
     public String getName() {
         return name;

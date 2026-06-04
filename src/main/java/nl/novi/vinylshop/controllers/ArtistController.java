@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import nl.novi.vinylshop.dtos.artist.ArtistRequestDTO;
 import nl.novi.vinylshop.dtos.artist.ArtistResponseDTO;
 import nl.novi.vinylshop.helpers.UrlHelper;
+import nl.novi.vinylshop.services.ArtistService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,7 +31,7 @@ public class ArtistController {
         return new ResponseEntity<>(artists, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
+    /*@GetMapping("/{id}")
     public ResponseEntity<ArtistResponseDTO> getArtistById(@PathVariable Long id) {
         ArtistResponseDTO artist = artistService.findArtistById(id);
         return new ResponseEntity<>(artist, HttpStatus.OK);
@@ -52,5 +53,5 @@ public class ArtistController {
     public ResponseEntity<Void> deleteArtist(@PathVariable Long id) {
         artistService.deleteArtist(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
+    }*/
 }

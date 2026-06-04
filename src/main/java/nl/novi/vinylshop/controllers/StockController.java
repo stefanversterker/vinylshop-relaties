@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import nl.novi.vinylshop.dtos.stock.StockRequestDTO;
 import nl.novi.vinylshop.dtos.stock.StockResponseDTO;
 import nl.novi.vinylshop.helpers.UrlHelper;
+import nl.novi.vinylshop.services.StockService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,11 +26,11 @@ public class StockController {
 
     @GetMapping
     public ResponseEntity<List<StockResponseDTO>> getAllStocks() {
-        List<StockResponseDTO> stock = stockService.findAllStocks();
-        return new ResponseEntity<>(stocks, HttpStatus.OK);
+        List<StockResponseDTO> stock = stockService.findAllStock();
+        return new ResponseEntity<>(stock, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
+    /*@GetMapping("/{id}")
     public ResponseEntity<StockResponseDTO> getStockById(@PathVariable Long id) {
         StockResponseDTO stock = stockService.findStockById(id);
         return new ResponseEntity<>(stock, HttpStatus.OK);
@@ -51,5 +52,5 @@ public class StockController {
     public ResponseEntity<Void> deleteStock(@PathVariable Long id) {
         stockService.deleteStock(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
+    }*/
 }
