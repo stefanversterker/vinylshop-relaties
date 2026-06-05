@@ -1,7 +1,11 @@
 package nl.novi.vinylshop.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "artists")
@@ -9,6 +13,9 @@ public class ArtistEntity extends BaseEntity {
 
     private String name;
     private String biography;
+
+    @ManyToMany(mappedBy = "artists")
+    private Set<AlbumEntity> albums = new HashSet<>();
 
     public String getName() {
         return name;

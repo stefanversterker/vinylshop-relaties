@@ -25,7 +25,7 @@ public class StockController {
     }
 
     @GetMapping
-    public ResponseEntity<List<StockResponseDTO>> getAllStocks() {
+    public ResponseEntity<List<StockResponseDTO>> getAllStockItems() {
         List<StockResponseDTO> stock = stockService.findAllStock();
         return new ResponseEntity<>(stock, HttpStatus.OK);
     }
