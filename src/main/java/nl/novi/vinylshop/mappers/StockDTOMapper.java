@@ -1,10 +1,7 @@
 package nl.novi.vinylshop.mappers;
 
-import nl.novi.vinylshop.dtos.genre.GenreRequestDTO;
-import nl.novi.vinylshop.dtos.genre.GenreResponseDTO;
 import nl.novi.vinylshop.dtos.stock.StockRequestDTO;
 import nl.novi.vinylshop.dtos.stock.StockResponseDTO;
-import nl.novi.vinylshop.entities.GenreEntity;
 import nl.novi.vinylshop.entities.StockEntity;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +15,7 @@ public class StockDTOMapper implements DTOMapper<StockResponseDTO, StockRequestD
     public StockResponseDTO mapToDto(StockEntity model) {
 
         var result = new StockResponseDTO();
+        result.setId(model.getId());
         result.setCondition(model.getCondition());
         result.setPrice(model.getPrice());
         return result;

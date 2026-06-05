@@ -1,8 +1,17 @@
 package nl.novi.vinylshop.dtos.artist;
 
 public class ArtistResponseDTO {
+    private Long id;
     private String name;
     private String biography;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

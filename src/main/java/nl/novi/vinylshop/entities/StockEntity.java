@@ -10,14 +10,6 @@ public class StockEntity extends BaseEntity {
     private String condition;
     private double price;
 
-    /*protected StockEntity() {
-    }
-
-    public StockEntity(String condition, double price) {
-        this.condition = condition;
-        this.price = price;
-    }*/
-
     public String getCondition() {
         return condition;
     }

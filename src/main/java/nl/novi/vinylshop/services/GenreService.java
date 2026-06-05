@@ -24,8 +24,6 @@ public class GenreService {
         this.genreDTOMapper = genreDTOMapper;
     }
 
-
-
     public List<GenreResponseDTO> findAllGenres() {
         return genreDTOMapper.mapToDto(genreRepository.findAll());
     }

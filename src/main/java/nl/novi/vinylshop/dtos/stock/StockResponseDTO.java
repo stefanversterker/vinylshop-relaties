@@ -1,8 +1,17 @@
 package nl.novi.vinylshop.dtos.stock;
 
 public class StockResponseDTO {
+    private Long id;
     private String condition;
     private double price;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getCondition() {
         return condition;

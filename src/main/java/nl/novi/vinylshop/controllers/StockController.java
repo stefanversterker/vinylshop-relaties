@@ -30,7 +30,7 @@ public class StockController {
         return new ResponseEntity<>(stock, HttpStatus.OK);
     }
 
-    /*@GetMapping("/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<StockResponseDTO> getStockById(@PathVariable Long id) {
         StockResponseDTO stock = stockService.findStockById(id);
         return new ResponseEntity<>(stock, HttpStatus.OK);
@@ -52,5 +52,5 @@ public class StockController {
     public ResponseEntity<Void> deleteStock(@PathVariable Long id) {
         stockService.deleteStock(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }*/
+    }
 }

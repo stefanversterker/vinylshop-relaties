@@ -10,14 +10,6 @@ public class AlbumEntity extends BaseEntity {
     private String title;
     private int releaseYear;
 
-    /*protected AlbumEntity() {
-    }
-
-    public AlbumEntity(String title, int releaseYear) {
-        this.title = title;
-        this.releaseYear = releaseYear;
-    }*/
-
     public String getTitle() {
         return title;
     }

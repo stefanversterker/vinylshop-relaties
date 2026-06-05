@@ -31,7 +31,7 @@ public class AlbumController {
         return new ResponseEntity<>(albums, HttpStatus.OK);
     }
 
-    /*@GetMapping("/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<AlbumResponseDTO> getAlbumById(@PathVariable Long id) {
         AlbumResponseDTO album = albumService.findAlbumById(id);
         return new ResponseEntity<>(album, HttpStatus.OK);
@@ -53,7 +53,7 @@ public class AlbumController {
     public ResponseEntity<Void> deleteAlbum(@PathVariable Long id) {
         albumService.deleteAlbum(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }*/
+    }
 
 
 }

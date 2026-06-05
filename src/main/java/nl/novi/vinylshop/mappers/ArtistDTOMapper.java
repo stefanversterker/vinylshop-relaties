@@ -2,9 +2,7 @@ package nl.novi.vinylshop.mappers;
 
 import nl.novi.vinylshop.dtos.artist.ArtistRequestDTO;
 import nl.novi.vinylshop.dtos.artist.ArtistResponseDTO;
-import nl.novi.vinylshop.dtos.genre.GenreRequestDTO;
 import nl.novi.vinylshop.entities.ArtistEntity;
-import nl.novi.vinylshop.entities.GenreEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -17,6 +15,7 @@ public class ArtistDTOMapper implements DTOMapper<ArtistResponseDTO, ArtistReque
     public ArtistResponseDTO mapToDto(ArtistEntity model) {
 
         var result = new ArtistResponseDTO();
+        result.setId(model.getId());
         result.setName(model.getName());
         result.setBiography(model.getBiography());
         return result;

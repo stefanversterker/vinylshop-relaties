@@ -1,15 +1,15 @@
 package nl.novi.vinylshop.dtos.album;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 public class AlbumRequestDTO {
 
     @NotBlank(message = "Titel mag niet leeg zijn")
     private String title;
 
-    @NotBlank(message = "Release jaar mag niet leeg zijn")
-    @Size(min = 4, max = 4)
+    @NotNull(message = "Release jaar mag niet leeg zijn")
+    @Min(1900)
+    @Max(2100)
     private int releaseYear;
 
     public String getTitle() {

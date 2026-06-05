@@ -31,7 +31,7 @@ public class ArtistController {
         return new ResponseEntity<>(artists, HttpStatus.OK);
     }
 
-    /*@GetMapping("/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<ArtistResponseDTO> getArtistById(@PathVariable Long id) {
         ArtistResponseDTO artist = artistService.findArtistById(id);
         return new ResponseEntity<>(artist, HttpStatus.OK);
@@ -53,5 +53,5 @@ public class ArtistController {
     public ResponseEntity<Void> deleteArtist(@PathVariable Long id) {
         artistService.deleteArtist(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }*/
+    }
 }
