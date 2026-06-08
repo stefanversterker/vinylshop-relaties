@@ -5,12 +5,18 @@ import jakarta.validation.constraints.*;
 public class AlbumRequestDTO {
 
     @NotBlank(message = "Titel mag niet leeg zijn")
+    @Size(min = 3, max = 100)
     private String title;
 
-    @NotNull(message = "Release jaar mag niet leeg zijn")
-    @Min(1900)
+    @Min(1877)
     @Max(2100)
     private int releaseYear;
+
+    private Long genreId;
+
+    private Long publisherId;
+
+    //Getters en setters
 
     public String getTitle() {
         return title;

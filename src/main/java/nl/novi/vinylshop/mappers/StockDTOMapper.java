@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Component
 public class StockDTOMapper implements DTOMapper<StockResponseDTO, StockRequestDTO, StockEntity> {
@@ -29,7 +30,6 @@ public class StockDTOMapper implements DTOMapper<StockResponseDTO, StockRequestD
         }
         return result;
     }
-
 
     @Override
     public StockEntity mapToEntity(StockRequestDTO stockModel) {

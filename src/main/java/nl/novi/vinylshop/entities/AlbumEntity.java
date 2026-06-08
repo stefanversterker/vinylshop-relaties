@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.concurrent.Flow;
 
 @Entity
 @Table(name = "albums")
@@ -18,7 +17,7 @@ public class AlbumEntity extends BaseEntity {
     private PublisherEntity publisher;
 
     @OneToMany(mappedBy = "album")
-    private Set<StockEntity> stock_items = new HashSet<>();
+    private Set<StockEntity> stockItems = new HashSet<>();
 
     @ManyToMany
     @JoinTable(
@@ -49,4 +48,38 @@ public class AlbumEntity extends BaseEntity {
     public void setReleaseYear(int releaseYear) {
         this.releaseYear = releaseYear;
     }
+
+    public PublisherEntity getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(PublisherEntity publisher) {
+        this.publisher = publisher;
+    }
+
+    public Set<StockEntity> getStockItems() {
+        return stockItems;
+    }
+
+    public void setStockItem(Set<StockEntity> stockItems) {
+        this.stockItems = stockItems;
+    }
+
+    public Set<ArtistEntity> getArtists() {
+        return artists;
+    }
+
+    public void setArtists(Set<ArtistEntity> artists) {
+        this.artists = artists;
+    }
+
+    public GenreEntity getGenre() {
+        return genre;
+    }
+
+    public void setGenre(GenreEntity genre) {
+        this.genre = genre;
+    }
+
+
 }

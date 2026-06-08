@@ -8,8 +8,9 @@ public class ArtistRequestDTO {
     @NotBlank(message = "Naam mag niet leeg zijn")
     private String name;
 
-    @Size(max = 255, message = "Bio mag niet langer zijn dan 255 karakters")
     private String biography;
+
+    //Getters en setters
 
     public String getName() {
         return name;

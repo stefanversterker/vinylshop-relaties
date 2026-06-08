@@ -27,4 +27,6 @@ public class GenreEntity extends BaseEntity {
     public void setDescription(String description) {
         this.description = description;
     }
+
+
 }

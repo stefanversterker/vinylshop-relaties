@@ -1,9 +1,18 @@
 package nl.novi.vinylshop.dtos.album;
 
+import nl.novi.vinylshop.dtos.genre.GenreResponseDTO;
+import nl.novi.vinylshop.dtos.publisher.PublisherResponseDTO;
+
 public class AlbumResponseDTO {
     private Long id;
     private String title;
     private int releaseYear;
+    private GenreResponseDTO genre;
+    private PublisherResponseDTO publisher;
+
+
+
+    //Getters en setters
 
     public Long getId() {
         return id;
@@ -27,5 +36,21 @@ public class AlbumResponseDTO {
 
     public void setReleaseYear(int releaseYear) {
         this.releaseYear = releaseYear;
+    }
+
+    public GenreResponseDTO getGenre() {
+        return genre;
+    }
+
+    public void setGenre(GenreResponseDTO genre) {
+        this.genre = genre;
+    }
+
+    public PublisherResponseDTO getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(PublisherResponseDTO publisher) {
+        this.publisher = publisher;
     }
 }

@@ -11,6 +11,13 @@ import java.util.List;
 @Component
 public class ArtistDTOMapper implements DTOMapper<ArtistResponseDTO, ArtistRequestDTO, ArtistEntity> {
 
+    //Inject albumMapper
+    private final AlbumDTOMapper albumMapper;
+
+    public ArtistDTOMapper(AlbumDTOMapper albumMapper) {
+        this.albumMapper = albumMapper;
+    }
+
     @Override
     public ArtistResponseDTO mapToDto(ArtistEntity model) {
 
@@ -18,6 +25,11 @@ public class ArtistDTOMapper implements DTOMapper<ArtistResponseDTO, ArtistReque
         result.setId(model.getId());
         result.setName(model.getName());
         result.setBiography(model.getBiography());
+        //Relationship mapping
+        result.setAlbums(albumMapper.mapToDto(
+                new ArrayList<>(model.getAlbums())
+        )
+        );
         return result;
     }
 
