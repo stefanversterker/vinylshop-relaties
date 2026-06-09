@@ -28,6 +28,11 @@ public class AlbumExtendedDTOMapper extends AlbumDTOMapper {
 
         var result = new AlbumExtendedResponseDto();
         AlbumResponseDTO baseDto = super.mapToDto(model);
+        result.setId(baseDto.getId());
+        result.setTitle(baseDto.getTitle());
+        result.setReleaseYear(baseDto.getReleaseYear());
+        result.setGenre(baseDto.getGenre());
+        result.setPublisher(baseDto.getPublisher());
         result.setStockItems(
                 stockMapper.mapToDto(
                         new ArrayList<>(model.getStockItems())));

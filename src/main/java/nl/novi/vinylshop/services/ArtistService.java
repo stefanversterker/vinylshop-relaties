@@ -47,6 +47,10 @@ public class ArtistService {
         return artistDTOMapper.mapToDto(existingArtistEntity);
     }
 
+    public List<ArtistResponseDTO> getArtistsForAlbum(Long albumId) {
+        return artistDTOMapper.mapToDto(artistRepository.findArtistsByAlbumsId(albumId));
+    }
+
     private ArtistEntity getArtistEntity(Long id) {
         ArtistEntity existingArtistEntity = artistRepository.findById(id)
                 .orElseThrow(() -> new RecordNotFoundException("Artist " + id +" not found"));
