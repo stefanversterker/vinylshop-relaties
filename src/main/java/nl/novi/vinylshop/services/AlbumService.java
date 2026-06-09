@@ -85,7 +85,11 @@ public class AlbumService {
     }
 
     public void deleteAlbum(Long id) {
-        albumRepository.deleteById(id);
+        AlbumEntity album = getAlbumEntity(id);
+
+        if (album.getStockItems().isEmpty()) {
+            albumRepository.deleteById(id);
+        }
     }
 
     public void linkArtist(Long albumId, Long artistId) {
