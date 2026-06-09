@@ -3,9 +3,11 @@ package nl.novi.vinylshop.services;
 
 import nl.novi.vinylshop.dtos.publisher.PublisherRequestDTO;
 import nl.novi.vinylshop.dtos.publisher.PublisherResponseDTO;
+import nl.novi.vinylshop.entities.AlbumEntity;
 import nl.novi.vinylshop.entities.PublisherEntity;
 import nl.novi.vinylshop.exceptions.RecordNotFoundException;
 import nl.novi.vinylshop.mappers.PublisherDTOMapper;
+import nl.novi.vinylshop.repositories.AlbumRepository;
 import nl.novi.vinylshop.repositories.PublisherRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,10 +18,14 @@ public class PublisherService{
 
     private final PublisherRepository publisherRepository;
     private final PublisherDTOMapper publisherDtoMapper;
+    private final AlbumRepository albumRepository;
 
-    public PublisherService(PublisherRepository publisherRepository, PublisherDTOMapper publisherDtoMapper) {
+    public PublisherService(PublisherRepository publisherRepository,
+                            PublisherDTOMapper publisherDtoMapper,
+                            AlbumRepository albumRepository) {
         this.publisherRepository = publisherRepository;
         this.publisherDtoMapper = publisherDtoMapper;
+        this.albumRepository = albumRepository;
     }
 
 //    Deze functie maakt gebruik van de Java Stream API. Dat is een korte manier om een for-loop te schrijven, maar het biedt ook nog andere functionaliteiten. Dit wordt niet in de stof behandeld, maar probeer eens te ontcijferen wat deze functie doet. Je zult zien dat het best intuïtief is.
@@ -51,6 +57,12 @@ public class PublisherService{
     }
 
     public void deletePublisher(Long id) {
+        PublisherEntity publisher = getPublisherEntity(id);
+
+        for (AlbumEntity album : publisher.getAlbums()) {
+            album.setPublisher(null);
+            albumRepository.save(album);
+        }
         publisherRepository.deleteById(id);
     }
 

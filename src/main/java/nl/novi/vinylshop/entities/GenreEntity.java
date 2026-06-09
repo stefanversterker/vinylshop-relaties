@@ -2,6 +2,7 @@ package nl.novi.vinylshop.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -26,4 +27,6 @@ public class GenreEntity extends BaseEntity {
     public void setDescription(String description) {
         this.description = description;
     }
+
+
 }

@@ -3,9 +3,11 @@ package nl.novi.vinylshop.services;
 import jakarta.persistence.EntityNotFoundException;
 import nl.novi.vinylshop.dtos.genre.GenreRequestDTO;
 import nl.novi.vinylshop.dtos.genre.GenreResponseDTO;
+import nl.novi.vinylshop.entities.AlbumEntity;
 import nl.novi.vinylshop.entities.GenreEntity;
 import nl.novi.vinylshop.exceptions.RecordNotFoundException;
 import nl.novi.vinylshop.mappers.GenreDTOMapper;
+import nl.novi.vinylshop.repositories.AlbumRepository;
 import nl.novi.vinylshop.repositories.GenreRepository;
 import org.springframework.stereotype.Service;
 
@@ -17,14 +19,16 @@ public class GenreService {
 
     private final GenreRepository genreRepository;
     private final GenreDTOMapper genreDTOMapper;
+    private final AlbumRepository albumRepository;
 
 
-    public GenreService(GenreRepository genreRepository, GenreDTOMapper genreDTOMapper) {
+    public GenreService(GenreRepository genreRepository,
+                        GenreDTOMapper genreDTOMapper,
+                        AlbumRepository albumRepository) {
         this.genreRepository = genreRepository;
         this.genreDTOMapper = genreDTOMapper;
+        this.albumRepository = albumRepository;
     }
-
-
 
     public List<GenreResponseDTO> findAllGenres() {
         return genreDTOMapper.mapToDto(genreRepository.findAll());
@@ -58,6 +62,12 @@ public class GenreService {
     }
 
     public void deleteGenre(Long id) {
+
+        for (AlbumEntity album : albumRepository.findByGenre_Id(id)) {
+            album.setGenre(null);
+            albumRepository.save(album);
+        }
+
         genreRepository.deleteById(id);
     }
 
